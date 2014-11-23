@@ -81,13 +81,10 @@
 		9C4DD8A31A2151AB00E403B5 /* TimeSheet */ = {
 			isa = PBXGroup;
 			children = (
-				9C4DD8A81A2151AB00E403B5 /* AppDelegate.h */,
-				9C4DD8A91A2151AB00E403B5 /* AppDelegate.m */,
-				9C4DD8AB1A2151AB00E403B5 /* ViewController.h */,
-				9C4DD8AC1A2151AB00E403B5 /* ViewController.m */,
-				9C4DD8AE1A2151AB00E403B5 /* Main.storyboard */,
-				9C4DD8B11A2151AB00E403B5 /* Images.xcassets */,
-				9C4DD8B31A2151AB00E403B5 /* LaunchScreen.xib */,
+				9C4DD8CD1A21538700E403B5 /* Images */,
+				9C4DD8CC1A21537100E403B5 /* User Interface */,
+				9C4DD8CB1A21536300E403B5 /* Controllers */,
+				9C4DD8CA1A21535700E403B5 /* Root */,
 				9C4DD8A41A2151AB00E403B5 /* Supporting Files */,
 			);
 			path = TimeSheet;
@@ -117,6 +114,41 @@
 				9C4DD8BF1A2151AB00E403B5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C4DD8CA1A21535700E403B5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DD8A81A2151AB00E403B5 /* AppDelegate.h */,
+				9C4DD8A91A2151AB00E403B5 /* AppDelegate.m */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		9C4DD8CB1A21536300E403B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DD8AB1A2151AB00E403B5 /* ViewController.h */,
+				9C4DD8AC1A2151AB00E403B5 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9C4DD8CC1A21537100E403B5 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DD8AE1A2151AB00E403B5 /* Main.storyboard */,
+				9C4DD8B31A2151AB00E403B5 /* LaunchScreen.xib */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		9C4DD8CD1A21538700E403B5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9C4DD8B11A2151AB00E403B5 /* Images.xcassets */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +200,7 @@
 				TargetAttributes = {
 					9C4DD8A01A2151AB00E403B5 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5U294U2N56;
 					};
 					9C4DD8B91A2151AB00E403B5 = {
 						CreatedOnToolsVersion = 6.1;
@@ -343,7 +376,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TimeSheet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +388,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TimeSheet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +449,7 @@
 				9C4DD8C61A2151AB00E403B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9C4DD8C71A2151AB00E403B5 /* Build configuration list for PBXNativeTarget "TimeSheetTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +458,7 @@
 				9C4DD8C91A2151AB00E403B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

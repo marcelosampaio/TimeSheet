@@ -13,16 +13,32 @@
 @end
 
 @implementation ViewController
+@synthesize totalHours,tableView;
+@synthesize source;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.source=[[NSMutableArray alloc]init];
+    
     NSLog(@"initial commit");
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Table View Delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.source count];
 }
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    return [[UITableViewCell alloc]init];
+    
+}
+
+
+
+
 
 @end
