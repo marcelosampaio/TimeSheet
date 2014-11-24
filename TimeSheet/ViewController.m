@@ -28,7 +28,7 @@
     self.source=[[NSMutableArray alloc]init];
     self.source=[self loadSource];
     
-    NSLog(@"initial commit");
+    NSLog(@"Current date=%@",[NSDate date]);
 }
 
 #pragma mark - Table View Delegate

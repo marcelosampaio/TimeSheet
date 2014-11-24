@@ -14,6 +14,10 @@
 		9C4DD8B21A2151AB00E403B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DD8B11A2151AB00E403B5 /* Images.xcassets */; };
 		9C4DD8B51A2151AB00E403B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DD8B31A2151AB00E403B5 /* LaunchScreen.xib */; };
 		9C4DD8C11A2151AB00E403B5 /* TimeSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DD8C01A2151AB00E403B5 /* TimeSheetTests.m */; };
+		9CD5BF551A22BEBB00A16490 /* TimeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF541A22BEBB00A16490 /* TimeDetailTableViewController.m */; };
+		9CD5BF581A22C15A00A16490 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF571A22C15A00A16490 /* ConfigurationViewController.m */; };
+		9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */; };
+		9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5E1A22C4B300A16490 /* TimeLine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		9C4DD8BA1A2151AB00E403B5 /* TimeSheetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSheetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DD8BF1A2151AB00E403B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DD8C01A2151AB00E403B5 /* TimeSheetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSheetTests.m; sourceTree = "<group>"; };
+		9CD5BF531A22BEBB00A16490 /* TimeDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeDetailTableViewController.h; sourceTree = "<group>"; };
+		9CD5BF541A22BEBB00A16490 /* TimeDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeDetailTableViewController.m; sourceTree = "<group>"; };
+		9CD5BF561A22C15A00A16490 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
+		9CD5BF571A22C15A00A16490 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurationViewController.m; sourceTree = "<group>"; };
+		9CD5BF591A22C33800A16490 /* DataEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntryViewController.h; sourceTree = "<group>"; };
+		9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryViewController.m; sourceTree = "<group>"; };
+		9CD5BF5D1A22C4B300A16490 /* TimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
+		9CD5BF5E1A22C4B300A16490 /* TimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,7 @@
 		9C4DD8A31A2151AB00E403B5 /* TimeSheet */ = {
 			isa = PBXGroup;
 			children = (
+				9CD5BF5C1A22C49300A16490 /* Classes */,
 				9C4DD8CD1A21538700E403B5 /* Images */,
 				9C4DD8CC1A21537100E403B5 /* User Interface */,
 				9C4DD8CB1A21536300E403B5 /* Controllers */,
@@ -130,6 +143,12 @@
 			children = (
 				9C4DD8AB1A2151AB00E403B5 /* ViewController.h */,
 				9C4DD8AC1A2151AB00E403B5 /* ViewController.m */,
+				9CD5BF531A22BEBB00A16490 /* TimeDetailTableViewController.h */,
+				9CD5BF541A22BEBB00A16490 /* TimeDetailTableViewController.m */,
+				9CD5BF561A22C15A00A16490 /* ConfigurationViewController.h */,
+				9CD5BF571A22C15A00A16490 /* ConfigurationViewController.m */,
+				9CD5BF591A22C33800A16490 /* DataEntryViewController.h */,
+				9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -149,6 +168,15 @@
 				9C4DD8B11A2151AB00E403B5 /* Images.xcassets */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		9CD5BF5C1A22C49300A16490 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9CD5BF5D1A22C4B300A16490 /* TimeLine.h */,
+				9CD5BF5E1A22C4B300A16490 /* TimeLine.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +282,11 @@
 			files = (
 				9C4DD8AD1A2151AB00E403B5 /* ViewController.m in Sources */,
 				9C4DD8AA1A2151AB00E403B5 /* AppDelegate.m in Sources */,
+				9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */,
 				9C4DD8A71A2151AB00E403B5 /* main.m in Sources */,
+				9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */,
+				9CD5BF551A22BEBB00A16490 /* TimeDetailTableViewController.m in Sources */,
+				9CD5BF581A22C15A00A16490 /* ConfigurationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
