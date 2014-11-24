@@ -15,11 +15,13 @@
 @implementation ViewController
 @synthesize totalHours,tableView;
 @synthesize source;
+@synthesize database;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    // Database Initial Procedures
+    [self databaseInitialProcedures];
     
     // Configure UI
     [self configureUI];
@@ -28,7 +30,6 @@
     self.source=[[NSMutableArray alloc]init];
     self.source=[self loadSource];
     
-    NSLog(@"Current date=%@",[NSDate date]);
 }
 
 #pragma mark - Table View Delegate
@@ -53,9 +54,7 @@
 
 #pragma mark - UI Configuration
 -(void)configureUI {
-    NSLog(@"configureUI");
     self.navigationItem.title=@"Nov/2014";
-    
 }
 
 #pragma mark - Working Methods
@@ -63,5 +62,13 @@
     return [[NSMutableArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth", nil];
 }
 
+#pragma mark - DataBase Methods
+-(void)databaseInitialProcedures {
+    
+    self.database=[[Database alloc]init];
+    
+    // copy database from resource folder to documents folder
+    [self.database copyDatabaseToWritableFolder];
 
+}
 @end

@@ -19,6 +19,8 @@
 		9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */; };
 		9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5E1A22C4B300A16490 /* TimeLine.m */; };
 		9CD5BF611A235D9D00A16490 /* TimeSheet.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5BF601A235D9D00A16490 /* TimeSheet.db */; };
+		9CD5BF631A235E2500A16490 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD5BF621A235E2500A16490 /* libsqlite3.dylib */; };
+		9CD5BF671A235E6100A16490 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF661A235E6100A16490 /* Database.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		9CD5BF5D1A22C4B300A16490 /* TimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
 		9CD5BF5E1A22C4B300A16490 /* TimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
 		9CD5BF601A235D9D00A16490 /* TimeSheet.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeSheet.db; sourceTree = "<group>"; };
+		9CD5BF621A235E2500A16490 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		9CD5BF651A235E6100A16490 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		9CD5BF661A235E6100A16490 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD5BF631A235E2500A16490 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +101,7 @@
 		9C4DD8A31A2151AB00E403B5 /* TimeSheet */ = {
 			isa = PBXGroup;
 			children = (
+				9CD5BF641A235E2C00A16490 /* Frameworks */,
 				9CD5BF5C1A22C49300A16490 /* Classes */,
 				9C4DD8CD1A21538700E403B5 /* Images */,
 				9C4DD8CC1A21537100E403B5 /* User Interface */,
@@ -178,8 +185,18 @@
 			children = (
 				9CD5BF5D1A22C4B300A16490 /* TimeLine.h */,
 				9CD5BF5E1A22C4B300A16490 /* TimeLine.m */,
+				9CD5BF651A235E6100A16490 /* Database.h */,
+				9CD5BF661A235E6100A16490 /* Database.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		9CD5BF641A235E2C00A16490 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CD5BF621A235E2500A16490 /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +303,7 @@
 			files = (
 				9C4DD8AD1A2151AB00E403B5 /* ViewController.m in Sources */,
 				9C4DD8AA1A2151AB00E403B5 /* AppDelegate.m in Sources */,
+				9CD5BF671A235E6100A16490 /* Database.m in Sources */,
 				9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */,
 				9C4DD8A71A2151AB00E403B5 /* main.m in Sources */,
 				9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Database.h"
 
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -15,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *source;
+
+@property (nonatomic,strong) Database *database;
 
 @end
 
