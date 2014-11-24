@@ -36,9 +36,32 @@
                     <view key="view" contentMode="scaleToFill" id="Db5-Ia-RTU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="naX-LB-RQR">
+                                <rect key="frame" x="0.0" y="203" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="438487158.428927">
+                                    <!--2014-11-24 01:59:18 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="433076400">
+                                    <!--2014-09-22 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="naX-LB-RQR" firstAttribute="leading" secondItem="Db5-Ia-RTU" secondAttribute="leading" id="GVp-nb-YSY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Data Entry" id="glI-iE-tcd"/>
+                    <navigationItem key="navigationItem" title="Data Entry" id="glI-iE-tcd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="pAZ-5X-xEU">
+                            <connections>
+                                <action selector="save:" destination="k3H-aT-0Bf" id="8of-gs-giG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="naX-LB-RQR" id="VsP-Te-11D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ID7-kv-T9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

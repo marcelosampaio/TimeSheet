@@ -10,4 +10,10 @@
 
 @interface DataEntryViewController : UIViewController
 
+
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+
+
+
+
 @end
