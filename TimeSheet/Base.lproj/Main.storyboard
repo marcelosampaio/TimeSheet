@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="width" constant="288" id="wnV-sW-KYT"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sD4-oB-PU3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="sD4-oB-PU3">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sD4-oB-PU3" id="k2S-Il-tfR">
@@ -44,9 +44,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="81l-ZB-s0T"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="tMx-S8-bdr"/>
+                                </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Nh-UY-CIE" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="9vt-0i-982"/>
                             <constraint firstItem="9Nh-UY-CIE" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="27" id="CZG-Kn-7aM"/>
@@ -67,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652" y="302"/>
+            <point key="canvasLocation" x="-348" y="298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9hA-3Y-jmB">
@@ -85,7 +89,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZsJ-xC-ENp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="202" y="302"/>
+            <point key="canvasLocation" x="-798" y="298"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
