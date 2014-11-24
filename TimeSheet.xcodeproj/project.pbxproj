@@ -18,6 +18,7 @@
 		9CD5BF581A22C15A00A16490 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF571A22C15A00A16490 /* ConfigurationViewController.m */; };
 		9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */; };
 		9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5E1A22C4B300A16490 /* TimeLine.m */; };
+		9CD5BF611A235D9D00A16490 /* TimeSheet.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5BF601A235D9D00A16490 /* TimeSheet.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryViewController.m; sourceTree = "<group>"; };
 		9CD5BF5D1A22C4B300A16490 /* TimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
 		9CD5BF5E1A22C4B300A16490 /* TimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
+		9CD5BF601A235D9D00A16490 /* TimeSheet.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeSheet.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4DD8A51A2151AB00E403B5 /* Info.plist */,
+				9CD5BF601A235D9D00A16490 /* TimeSheet.db */,
 				9C4DD8A61A2151AB00E403B5 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD5BF611A235D9D00A16490 /* TimeSheet.db in Resources */,
 				9C4DD8B01A2151AB00E403B5 /* Main.storyboard in Resources */,
 				9C4DD8B51A2151AB00E403B5 /* LaunchScreen.xib in Resources */,
 				9C4DD8B21A2151AB00E403B5 /* Images.xcassets in Resources */,

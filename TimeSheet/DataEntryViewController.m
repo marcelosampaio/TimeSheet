@@ -22,7 +22,18 @@
 
 
 - (IBAction)save:(id)sender {
-    NSLog(@"selected date is %@",self.datePicker.date);
+    
+//    NSLog(@"%@", [NSTimeZone knownTimeZoneNames]);
+//    [NSTimeZone timeZoneWithName:@"America/Belem"];
+    
+    NSInteger seconds=[[NSTimeZone localTimeZone]secondsFromGMT];
+
+    NSTimeInterval factor = seconds;
+    NSDate *factorDate = [self.datePicker.date dateByAddingTimeInterval:factor];
+    
+
+    
+    NSLog(@"selected date is %@",factorDate);
 }
 
 
