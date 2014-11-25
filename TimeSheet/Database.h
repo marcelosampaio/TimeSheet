@@ -21,7 +21,7 @@
 -(void) openDB;
 -(void) closeDB;
 -(void) copyDatabaseToWritableFolder;
--(void) updateDatabaseWithReferenceDate:(NSDate *)referenceDate;
+-(void) addTimeSheetWithReferenceDate:(NSDate *)referenceDate;
 
 
 @end

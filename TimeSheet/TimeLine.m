@@ -12,11 +12,11 @@
 @synthesize dateReference;
 
 
-- (id)initWithDate:(NSDate *)a_Date
+- (id)initWithDate:(NSDate *)inputDate
 {
     self = [super init];
     if (self) {
-        dateReference=a_Date;
+        dateReference=inputDate;
     }
     return self;
 }

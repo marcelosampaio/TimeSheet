@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Configuration" id="MTP-ky-iZ6"/>
+                    <navigationItem key="navigationItem" title="Month Selection" id="MTP-ky-iZ6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlA-h0-UTD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -37,8 +37,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="naX-LB-RQR">
-                                <rect key="frame" x="0.0" y="203" width="320" height="162"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42Q-hc-alp">
+                                <rect key="frame" x="106" y="298" width="108" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="k3H-aT-0Bf" id="QVW-td-LLj"/>
+                                    <outlet property="delegate" destination="k3H-aT-0Bf" id="cDa-Gc-g46"/>
+                                </connections>
+                            </pickerView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="naX-LB-RQR">
+                                <rect key="frame" x="16" y="118" width="288" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="438487158.428927">
                                     <!--2014-11-24 01:59:18 +0000-->
                                 </date>
@@ -49,7 +56,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="naX-LB-RQR" firstAttribute="leading" secondItem="Db5-Ia-RTU" secondAttribute="leading" id="GVp-nb-YSY"/>
+                            <constraint firstItem="42Q-hc-alp" firstAttribute="leading" secondItem="Db5-Ia-RTU" secondAttribute="leadingMargin" constant="90" id="0b0-yI-m0R"/>
+                            <constraint firstItem="naX-LB-RQR" firstAttribute="centerX" secondItem="42Q-hc-alp" secondAttribute="centerX" id="A2L-3E-eRr"/>
+                            <constraint firstItem="naX-LB-RQR" firstAttribute="leading" secondItem="Db5-Ia-RTU" secondAttribute="leadingMargin" id="WiP-Cu-ddz"/>
+                            <constraint firstItem="naX-LB-RQR" firstAttribute="trailing" secondItem="Db5-Ia-RTU" secondAttribute="trailingMargin" id="b7p-Tf-5OF"/>
+                            <constraint firstItem="naX-LB-RQR" firstAttribute="top" secondItem="bGw-91-cKo" secondAttribute="bottom" constant="54" id="gok-P0-UbL"/>
+                            <constraint firstItem="42Q-hc-alp" firstAttribute="top" secondItem="naX-LB-RQR" secondAttribute="bottom" constant="18" id="rI0-Q2-3an"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data Entry" id="glI-iE-tcd">
@@ -61,6 +73,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="naX-LB-RQR" id="VsP-Te-11D"/>
+                        <outlet property="pickerView" destination="42Q-hc-alp" id="OfJ-xR-d2u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ID7-kv-T9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,7 +138,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bc6-ZX-jiw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="compose" id="iDr-ZA-CVS">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="iDr-ZA-CVS">
                             <connections>
                                 <segue destination="Qtb-Ek-cKp" kind="push" identifier="showConfiguration" id="dpY-rd-dDX"/>
                             </connections>

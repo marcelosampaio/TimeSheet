@@ -12,7 +12,7 @@
 
 @property (strong,nonatomic) NSDate *dateReference;
 
-- (id)initWithDate:(NSDate *)a_Date;
+- (id)initWithDate:(NSDate *)inputDate;
 
 
 @end

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DataEntryViewController : UIViewController
+@interface DataEntryViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+
 
 
 
