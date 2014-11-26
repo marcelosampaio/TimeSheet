@@ -10,9 +10,15 @@
 
 @interface TimeLine : NSObject
 
-@property (strong,nonatomic) NSDate *dateReference;
+@property int year;
+@property int month;
+@property int day;
+@property int hour;
+@property int minute;
+@property int second;
 
-- (id)initWithDate:(NSDate *)inputDate;
+
+- (id)initWithYear:(int)p_year month:(int)p_month day:(int)p_day hour:(int)p_hour minute:(int)p_minute second:(int)p_second;
 
 
 @end

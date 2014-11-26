@@ -38,6 +38,7 @@
 -(NSString *) dbPath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"database Path: %@",[[paths objectAtIndex:0] stringByAppendingPathComponent:DATABASE_IDENTIFIER]);
     return [[paths objectAtIndex:0] stringByAppendingPathComponent:DATABASE_IDENTIFIER];
 }
 
@@ -82,28 +83,22 @@
 }
 
 #pragma mark - Time Sheet Methods
--(void) addTimeSheetWithReferenceDate:(NSDate *)referenceDate {
-    NSLog(@"DATABASE.M ---> will store date: %@",referenceDate);
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:[NSDate date]];
+-(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine {
+    TimeLine *timeLineObject=timeLine;
 
-    NSLog(@"Year:%ld",(long)components.year);
-    NSLog(@"Month:%ld",(long)components.month);
-    NSLog(@"Day:%ld",(long)components.day);
-    NSLog(@"Hour:%ld",(long)components.hour);
-    NSLog(@"Minute:%ld",(long)components.minute);
-    NSLog(@"Second:%ld",(long)components.second);
+    // error variable for database call
+    char *err;
     
-//    // error variable for database call
-//    char *err;
-//    
-//    // sql string
-//    NSString *sql=[NSString stringWithFormat:@"insert into TimeSheet (referenceDate) values (%@)",nil];
-//    
-//    // execute database command
-//    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
-//        sqlite3_close(db);
-//        NSAssert(0, @"Database error - addFavorite Method");
-//    }
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"insert into TimeSheet (year,month,day,hour,minute,second) values (%d,%d,%d,%d,%d,%d)",timeLineObject.year,timeLineObject.month,timeLineObject.day,timeLineObject.hour,timeLineObject.minute,timeLineObject.second];
+    
+    NSLog(@"sql=%@",sql);
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Database error - addFavorite Method");
+    }
 
     
     

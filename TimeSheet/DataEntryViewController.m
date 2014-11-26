@@ -8,6 +8,7 @@
 
 #import "DataEntryViewController.h"
 #import "Database.h"
+#import "TimeLine.h"
 
 @interface DataEntryViewController ()
 
@@ -15,30 +16,65 @@
 
 @implementation DataEntryViewController
 @synthesize datePicker,pickerView;
+@synthesize selectedHour,selectedMinute;
 
+#pragma mark - View Life Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:[NSDate date]];
+    
+    NSLog(@"Year:%ld",(long)components.year);
+    NSLog(@"Month:%ld",(long)components.month);
+    NSLog(@"Day:%ld",(long)components.day);
+    NSLog(@"Hour:%ld",(long)components.hour);
+    NSLog(@"Minute:%ld",(long)components.minute);
+    NSLog(@"Second:%ld",(long)components.second);
+    
+    self.selectedHour=components.hour;
+    self.selectedMinute=components.minute;
+    
+    [self.pickerView selectRow:components.hour inComponent:0 animated:YES];
+    [self.pickerView selectRow:components.minute inComponent:1 animated:YES];
+
+
+}
+
 
 
 - (IBAction)save:(id)sender {
     
 //    NSLog(@"%@", [NSTimeZone knownTimeZoneNames]);
 //    [NSTimeZone timeZoneWithName:@"America/Belem"];
-    
-    
-    NSLog(@"-> DATE PICKER DATE = %@",self.datePicker.date);
-    
-    // Convert to local time
+
+    // Convert to local date
     NSInteger seconds=[[NSTimeZone localTimeZone]secondsFromGMT];
-//    NSTimeInterval timeInterval=seconds;
     NSDate *timesheetLocatTime = [self.datePicker.date dateByAddingTimeInterval:seconds];
     
-    NSLog(@"-> LOCAL TIME = %@",timesheetLocatTime);
+    // Get Date Components
+     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:timesheetLocatTime];
+    NSMutableString *dateString=[NSMutableString stringWithFormat:@"%d",components.year];
+    [dateString appendString:@"-"];
+    [dateString appendFormat:@"%02d",components.month];
+    [dateString appendString:@"-"];
+    [dateString appendFormat:@"%02d",components.day];
+
+    // Get Picker's Time
+    NSMutableString *timeString=[NSMutableString stringWithFormat:@"%02d",self.selectedHour];
+    [timeString appendString:@":"];
+    [timeString appendFormat:@"%02d",self.selectedMinute];
     
+    // TimeLine Object
+    TimeLine *timeLine=[[TimeLine alloc]initWithYear:components.year month:components.month day:components.day hour:self.selectedHour minute:self.selectedMinute second:components.second];
+
+ 
     Database *database=[[Database alloc]init];
-    [database addTimeSheetWithReferenceDate:timesheetLocatTime];
+    [database openDB];
+    [database addTimeSheetWithTimeLineObject:timeLine];
     
 }
 
@@ -61,6 +97,16 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return [NSString stringWithFormat:@"%02d",row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    if (component==0) {
+        self.selectedHour=row;
+    }else{
+        self.selectedMinute=row;
+    }
+
 }
 
 @end

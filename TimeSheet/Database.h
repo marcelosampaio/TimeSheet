@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "sqlite3.h"
+#import "TimeLine.h"
 
 
 @interface Database : NSObject
@@ -21,7 +22,7 @@
 -(void) openDB;
 -(void) closeDB;
 -(void) copyDatabaseToWritableFolder;
--(void) addTimeSheetWithReferenceDate:(NSDate *)referenceDate;
+-(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine;
 
 
 @end

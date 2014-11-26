@@ -9,14 +9,19 @@
 #import "TimeLine.h"
 
 @implementation TimeLine
-@synthesize dateReference;
+@synthesize year,month,day,hour,minute,second;
 
 
-- (id)initWithDate:(NSDate *)inputDate
+- (id)initWithYear:(int)p_year month:(int)p_month day:(int)p_day hour:(int)p_hour minute:(int)p_minute second:(int)p_second
 {
     self = [super init];
     if (self) {
-        dateReference=inputDate;
+        year=p_year;
+        month=p_month;
+        day=p_day;
+        hour=p_hour;
+        minute=p_minute;
+        second=p_second;
     }
     return self;
 }

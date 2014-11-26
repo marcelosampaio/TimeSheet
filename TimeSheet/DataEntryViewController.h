@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 
-
+@property int selectedHour;
+@property int selectedMinute;
 
 
 

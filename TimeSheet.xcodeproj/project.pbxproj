@@ -14,11 +14,11 @@
 		9C4DD8B21A2151AB00E403B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DD8B11A2151AB00E403B5 /* Images.xcassets */; };
 		9C4DD8B51A2151AB00E403B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DD8B31A2151AB00E403B5 /* LaunchScreen.xib */; };
 		9C4DD8C11A2151AB00E403B5 /* TimeSheetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DD8C01A2151AB00E403B5 /* TimeSheetTests.m */; };
+		9C52F3DD1A256115005E7902 /* TimeSheet.db in Resources */ = {isa = PBXBuildFile; fileRef = 9C52F3DC1A256115005E7902 /* TimeSheet.db */; };
 		9CD5BF551A22BEBB00A16490 /* TimeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF541A22BEBB00A16490 /* TimeDetailTableViewController.m */; };
 		9CD5BF581A22C15A00A16490 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF571A22C15A00A16490 /* ConfigurationViewController.m */; };
 		9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */; };
 		9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF5E1A22C4B300A16490 /* TimeLine.m */; };
-		9CD5BF611A235D9D00A16490 /* TimeSheet.db in Resources */ = {isa = PBXBuildFile; fileRef = 9CD5BF601A235D9D00A16490 /* TimeSheet.db */; };
 		9CD5BF631A235E2500A16490 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD5BF621A235E2500A16490 /* libsqlite3.dylib */; };
 		9CD5BF671A235E6100A16490 /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD5BF661A235E6100A16490 /* Database.m */; };
 /* End PBXBuildFile section */
@@ -47,6 +47,7 @@
 		9C4DD8BA1A2151AB00E403B5 /* TimeSheetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSheetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DD8BF1A2151AB00E403B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DD8C01A2151AB00E403B5 /* TimeSheetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSheetTests.m; sourceTree = "<group>"; };
+		9C52F3DC1A256115005E7902 /* TimeSheet.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeSheet.db; sourceTree = "<group>"; };
 		9CD5BF531A22BEBB00A16490 /* TimeDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeDetailTableViewController.h; sourceTree = "<group>"; };
 		9CD5BF541A22BEBB00A16490 /* TimeDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeDetailTableViewController.m; sourceTree = "<group>"; };
 		9CD5BF561A22C15A00A16490 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationViewController.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		9CD5BF5A1A22C33800A16490 /* DataEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryViewController.m; sourceTree = "<group>"; };
 		9CD5BF5D1A22C4B300A16490 /* TimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLine.h; sourceTree = "<group>"; };
 		9CD5BF5E1A22C4B300A16490 /* TimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLine.m; sourceTree = "<group>"; };
-		9CD5BF601A235D9D00A16490 /* TimeSheet.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = TimeSheet.db; sourceTree = "<group>"; };
 		9CD5BF621A235E2500A16490 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		9CD5BF651A235E6100A16490 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		9CD5BF661A235E6100A16490 /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 		9C4DD8A41A2151AB00E403B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9C52F3DC1A256115005E7902 /* TimeSheet.db */,
 				9C4DD8A51A2151AB00E403B5 /* Info.plist */,
-				9CD5BF601A235D9D00A16490 /* TimeSheet.db */,
 				9C4DD8A61A2151AB00E403B5 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -280,7 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CD5BF611A235D9D00A16490 /* TimeSheet.db in Resources */,
+				9C52F3DD1A256115005E7902 /* TimeSheet.db in Resources */,
 				9C4DD8B01A2151AB00E403B5 /* Main.storyboard in Resources */,
 				9C4DD8B51A2151AB00E403B5 /* LaunchScreen.xib in Resources */,
 				9C4DD8B21A2151AB00E403B5 /* Images.xcassets in Resources */,
