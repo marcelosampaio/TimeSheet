@@ -84,26 +84,148 @@
 
 #pragma mark - Time Sheet Methods
 -(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine {
+
+    // Open DataBase
+    [self openDB];
+    
     TimeLine *timeLineObject=timeLine;
 
     // error variable for database call
     char *err;
     
     // sql string
-    NSString *sql=[NSString stringWithFormat:@"insert into TimeSheet (year,month,day,hour,minute,second) values (%d,%d,%d,%d,%d,%d)",timeLineObject.year,timeLineObject.month,timeLineObject.day,timeLineObject.hour,timeLineObject.minute,timeLineObject.second];
-    
-    NSLog(@"sql=%@",sql);
+    NSString *sql=[NSString stringWithFormat:@"insert into TimeSheet (eventDate) values ('%@')",timeLineObject.dateTime];
     
     // execute database command
     if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
         sqlite3_close(db);
-        NSAssert(0, @"Database error - addFavorite Method");
+        NSAssert(0, @"Database error - (addTimeSheetWithTimeLineObject:) Method");
     }
 
+    // Close DataBase
+    [self closeDB];
+}
+
+-(NSMutableArray *)getTimeLineWithYear:(int)year month:(int)month day:(int)day {
+    
+    // Open Database
+    [self openDB];
+    
+    NSString *beginDate=@"";
+    NSString *endDate=@"";
+    
+    if (day==0) {
+        beginDate=[NSString stringWithFormat:@"%d-%02d-01 00:00:00",year,month];
+        endDate=[NSString stringWithFormat:@"%d-%02d-31 23:59:59",year,month];
+    }else{
+        beginDate=[NSString stringWithFormat:@"%d-%02d-%02d 00:00:00",year,month,day];
+        endDate=[NSString stringWithFormat:@"%d-%02d-%02d 23:59:59",year,month,day];
+    }
     
     
     
+    NSMutableArray *objectArray=[[NSMutableArray alloc]init];
     
+    // Get favorites from database
+    NSString *sql = [NSString stringWithFormat:@"select rowId,eventDate from TimeSheet where eventDate between '%@' and '%@' order by eventDate",beginDate,endDate];
+    
+    NSLog(@"getTimeLineWithYear:     SQL=%@",sql);
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(db, [sql UTF8String], -1, &statement, nil)==SQLITE_OK)
+    {
+        BOOL firstTime=YES;
+        int previousRowId=0;
+        int currentRowId=0;
+        
+        int counter=0;
+        
+        NSString *previousEventDate=@"";
+        NSString *currentEventDate=@"";
+        
+        NSString *previousEventTime=@"";
+        NSString *currentEventTime=@"";
+        
+        NSString *subTitle=@"";
+        float totalHours=0;
+        
+        while(sqlite3_step(statement)==SQLITE_ROW)
+        {
+            // rowId
+            char *field0 = (char *) sqlite3_column_text(statement, 0);
+            NSString *field0Str = [[NSString alloc] initWithUTF8String:field0];
+            
+            // eventDate
+            char *field1 = (char *) sqlite3_column_text(statement, 1);
+            NSString *field1Str = [[NSString alloc] initWithUTF8String:field1];
+            
+            // --
+            NSArray *components = [field1Str componentsSeparatedByString:@" "];
+            currentEventDate=[components objectAtIndex:0];
+            currentEventTime=[components objectAtIndex:1];
+            currentRowId=[field0Str intValue];
+            
+            if (firstTime) {
+                previousEventDate=currentEventDate;
+                previousEventTime=currentEventTime;
+                previousRowId=currentRowId;
+                firstTime=NO;
+            }
+
+            counter++;
+            //
+            float remainder = fmod(counter, 2);
+            if (remainder==0) {
+                // Compute Extra Time Total Hours
+                totalHours=totalHours+[self getTotalHoursWithCurrentTime:currentEventTime previousTime:previousEventTime];
+                subTitle=@"";
+            }else{
+                subTitle=@"Incomplete";
+            }
+
+            if (![currentEventDate isEqualToString:previousEventDate]) {
+                // Load table view cell
+                [objectArray addObject:[[TimeLine alloc]initWithDateTime:previousEventDate rowId:previousRowId totalHours:totalHours]];
+                
+                previousEventDate=currentEventDate;
+//                previousEventTime=currentEventTime;
+//                previousRowId=currentRowId;
+            }
+            previousEventTime=currentEventTime;
+            previousRowId=currentRowId;
+
+        } // End While
+
+        // Load last row
+        if (!firstTime) {
+            NSLog(@"GRAND TOTAL = %f",totalHours);
+            [objectArray addObject:[[TimeLine alloc]initWithDateTime:previousEventDate rowId:previousRowId totalHours:totalHours]];
+        }
+    }
+    // Close Database
+    [self closeDB];
+    
+    // return data
+    return objectArray;
+}
+
+-(float)getTotalHoursWithCurrentTime:(NSString *)currentTime previousTime:(NSString *)previousTime {
+
+    NSArray *currentComponents = [currentTime componentsSeparatedByString: @":"];
+    NSArray *previousComponents = [previousTime componentsSeparatedByString: @":"];
+
+    float currentHour=[[currentComponents objectAtIndex:0] intValue];
+    float currentMinute=([[currentComponents objectAtIndex:1] intValue]/60.00f);
+    float computedCurrentHours=currentHour+currentMinute;
+    
+    
+    float previousHour=[[previousComponents objectAtIndex:0] intValue];
+    float previousMinute=([[previousComponents objectAtIndex:1] intValue]/60.00f);
+    float computedPreviousHours=previousHour+previousMinute;
+    
+    
+    NSLog(@"COMPUTED: %f",computedCurrentHours-computedPreviousHours);
+    return (computedCurrentHours-computedPreviousHours);
     
 }
 

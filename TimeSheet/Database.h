@@ -19,10 +19,11 @@
 
 #pragma mark - Database Methods
 // open database
--(void) openDB;
--(void) closeDB;
+//-(void) openDB;
+//-(void) closeDB;
 -(void) copyDatabaseToWritableFolder;
 -(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine;
+-(NSMutableArray *)getTimeLineWithYear:(int)year month:(int)month day:(int)day;
 
 
 @end

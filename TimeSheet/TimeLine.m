@@ -9,19 +9,15 @@
 #import "TimeLine.h"
 
 @implementation TimeLine
-@synthesize year,month,day,hour,minute,second;
+@synthesize dateTime,rowId,totalHours;
 
-
-- (id)initWithYear:(int)p_year month:(int)p_month day:(int)p_day hour:(int)p_hour minute:(int)p_minute second:(int)p_second
+-(id)initWithDateTime:(NSString *)p_DateTime rowId:(int)p_RowId totalHours:(float)p_Total_Hours
 {
     self = [super init];
     if (self) {
-        year=p_year;
-        month=p_month;
-        day=p_day;
-        hour=p_hour;
-        minute=p_minute;
-        second=p_second;
+        dateTime=p_DateTime;
+        rowId=p_RowId;
+        totalHours=p_Total_Hours;
     }
     return self;
 }

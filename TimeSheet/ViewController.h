@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Database.h"
+#import "TimeLine.h"
 
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -18,6 +19,9 @@
 @property (nonatomic,strong) NSMutableArray *source;
 
 @property (nonatomic,strong) Database *database;
+@property (nonatomic,strong) TimeLine *timeLine;
+
+@property (nonatomic,strong) NSDateComponents *components;
 
 @end
 

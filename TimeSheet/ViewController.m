@@ -15,8 +15,9 @@
 @implementation ViewController
 @synthesize totalHours,tableView;
 @synthesize source;
-@synthesize database;
+@synthesize database,timeLine,components;
 
+#pragma mark - View Lify Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -26,11 +27,20 @@
     // Configure UI
     [self configureUI];
     
-    // Load Data
-    self.source=[[NSMutableArray alloc]init];
-    self.source=[self loadSource];
-    
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    // Load data from database
+    self.source=[[NSMutableArray alloc]init];
+    self.timeLine=[[TimeLine alloc]init];
+    
+    self.source=[self.database getTimeLineWithYear:self.components.year month:self.components.month day:0];
+    
+
+}
+
 
 #pragma mark - Table View Delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -46,7 +56,11 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text=[self.source objectAtIndex:indexPath.row];
+    
+    self.timeLine=[self.source objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text=timeLine.dateTime;
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%f",timeLine.totalHours];
     
     return cell;
     
@@ -54,12 +68,9 @@
 
 #pragma mark - UI Configuration
 -(void)configureUI {
-    self.navigationItem.title=@"Nov/2014";
-}
-
-#pragma mark - Working Methods
--(NSMutableArray *)loadSource {
-    return [[NSMutableArray alloc]initWithObjects:@"first",@"second",@"third",@"fourth", nil];
+    // Get Date Components of the current date
+    self.components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    self.navigationItem.title=[NSString stringWithFormat:@"%d/%d",self.components.month,self.components.year];
 }
 
 #pragma mark - DataBase Methods

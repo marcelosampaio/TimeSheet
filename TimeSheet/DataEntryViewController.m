@@ -56,7 +56,7 @@
     NSDate *timesheetLocatTime = [self.datePicker.date dateByAddingTimeInterval:seconds];
     
     // Get Date Components
-     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:timesheetLocatTime];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:timesheetLocatTime];
     NSMutableString *dateString=[NSMutableString stringWithFormat:@"%d",components.year];
     [dateString appendString:@"-"];
     [dateString appendFormat:@"%02d",components.month];
@@ -67,13 +67,17 @@
     NSMutableString *timeString=[NSMutableString stringWithFormat:@"%02d",self.selectedHour];
     [timeString appendString:@":"];
     [timeString appendFormat:@"%02d",self.selectedMinute];
+    [timeString appendString:@":00"];
+    
+    // Date & Time
+    NSMutableString *dateTimeString=dateString;
+    [dateTimeString appendFormat:@" %@",timeString];
     
     // TimeLine Object
-    TimeLine *timeLine=[[TimeLine alloc]initWithYear:components.year month:components.month day:components.day hour:self.selectedHour minute:self.selectedMinute second:components.second];
+    TimeLine *timeLine=[[TimeLine alloc]initWithDateTime:dateTimeString rowId:0 totalHours:0];
 
- 
+    // Database
     Database *database=[[Database alloc]init];
-    [database openDB];
     [database addTimeSheetWithTimeLineObject:timeLine];
     
 }

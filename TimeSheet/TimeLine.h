@@ -10,15 +10,11 @@
 
 @interface TimeLine : NSObject
 
-@property int year;
-@property int month;
-@property int day;
-@property int hour;
-@property int minute;
-@property int second;
+@property (nonatomic,strong) NSString *dateTime;
+@property int rowId;
+@property float totalHours;
 
-
-- (id)initWithYear:(int)p_year month:(int)p_month day:(int)p_day hour:(int)p_hour minute:(int)p_minute second:(int)p_second;
+-(id)initWithDateTime:(NSString *)p_DateTime rowId:(int)p_RowId totalHours:(float)p_Total_Hours;
 
 
 @end
