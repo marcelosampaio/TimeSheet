@@ -126,7 +126,7 @@
     
     NSMutableArray *objectArray=[[NSMutableArray alloc]init];
     
-    // Get favorites from database
+    // Get timeline from database
     NSString *sql = [NSString stringWithFormat:@"select rowId,eventDate from TimeSheet where eventDate between '%@' and '%@' order by eventDate",beginDate,endDate];
     
     NSLog(@"getTimeLineWithYear:     SQL=%@",sql);
@@ -190,6 +190,7 @@
                 previousEventDate=currentEventDate;
 //                previousEventTime=currentEventTime;
 //                previousRowId=currentRowId;
+                totalHours=0;
             }
             previousEventTime=currentEventTime;
             previousRowId=currentRowId;
