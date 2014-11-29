@@ -37,6 +37,7 @@
     self.timeLine=[[TimeLine alloc]init];
     
     self.source=[self.database getTimeLineWithYear:self.components.year month:self.components.month day:0];
+    [self.tableView reloadData];
     
 
 }
