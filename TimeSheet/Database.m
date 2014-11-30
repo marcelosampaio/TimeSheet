@@ -199,7 +199,7 @@
 
         // Load last row
         if (!firstTime) {
-            NSLog(@"GRAND TOTAL = %f",totalHours);
+//            NSLog(@"GRAND TOTAL = %f",totalHours);
             [objectArray addObject:[[TimeLine alloc]initWithDateTime:previousEventDate rowId:previousRowId totalHours:totalHours]];
         }
     }
@@ -225,7 +225,7 @@
     float computedPreviousHours=previousHour+previousMinute;
     
     
-    NSLog(@"COMPUTED: %f",computedCurrentHours-computedPreviousHours);
+//    NSLog(@"COMPUTED: %f",computedCurrentHours-computedPreviousHours);
     return (computedCurrentHours-computedPreviousHours);
     
 }

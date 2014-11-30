@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CustomEventTableViewCell.h"
 
 @interface ViewController ()
 
@@ -52,21 +53,62 @@
 
 -(UITableViewCell *)tableView:(UITableView *)a_tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *cellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [a_tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier];
+    CustomEventTableViewCell *cell = (CustomEventTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell==nil)  //Instancia celulas suficientes para uma tela
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableViewCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
+
     
     self.timeLine=[self.source objectAtIndex:indexPath.row];
     
-    cell.textLabel.text=[self.timeLine getBrazilianDateFomatWithDate:self.timeLine.dateTime];
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"%f",timeLine.totalHours];
+    cell.eventDate.text=[self.timeLine getBrazilianDateFomatWithDate:self.timeLine.dateTime];
+    cell.eventNormalHour.text=[NSString stringWithFormat:@"%02.2f",timeLine.totalHours];
+    cell.eventOverHour.text=[NSString stringWithFormat:@"%02.2f",timeLine.totalHours];
     
     return cell;
     
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 87;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath: (NSIndexPath *)indexPath {
+    return @"Remove";
+    //    [self.tableView setEditing:!self.tableView.editing animated:YES];
+}
+
+- (void)tableView:(UITableView *)a_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //Exclusao física da medição no banco de dados
+//        [self.brain excluirMedicao:[[self.medicaoId objectAtIndex:indexPath.row] intValue]];
+//
+        [self.source removeObjectAtIndex:indexPath.row];
+        [a_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"cell row");
+//    return;
+//}
+
+
+
+
 
 #pragma mark - UI Configuration
 -(void)configureUI {
