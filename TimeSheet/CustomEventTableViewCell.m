@@ -10,7 +10,7 @@
 
 @implementation CustomEventTableViewCell
 
-@synthesize eventDate,eventOverHour,eventNormalHour;
+@synthesize eventDate,eventOverHour,eventNormalHour,overTimeIcon,overHourLabel,normalHourLabel;
 
 - (void)awakeFromNib {
     // Initialization code

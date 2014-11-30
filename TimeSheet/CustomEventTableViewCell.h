@@ -13,5 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventDate;
 @property (weak, nonatomic) IBOutlet UILabel *eventNormalHour;
 @property (weak, nonatomic) IBOutlet UILabel *eventOverHour;
+@property (weak, nonatomic) IBOutlet UIImageView *overTimeIcon;
+@property (weak, nonatomic) IBOutlet UILabel *normalHourLabel;
+@property (weak, nonatomic) IBOutlet UILabel *overHourLabel;
+
+
 
 @end

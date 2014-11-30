@@ -14,6 +14,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *totalHours;
+@property (weak, nonatomic) IBOutlet UILabel *totalOverHours;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 
@@ -26,6 +28,9 @@
 
 @property (nonatomic,strong) NSDateComponents *components;
 
+
+@property float grandTotalNormalHours;
+@property float grandTotalOverHours;
 
 
 
