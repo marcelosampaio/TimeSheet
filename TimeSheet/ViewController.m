@@ -44,10 +44,6 @@
     
     self.source=[self.database getTimeLineWithYear:self.components.year month:self.components.month day:0];
     [self.tableView reloadData];
-    self.totalHours.text=[NSString stringWithFormat:@"Normal: %02.2f",self.grandTotalNormalHours];
-    self.totalOverHours.text=[NSString stringWithFormat:@"Over: %02.2f",self.grandTotalOverHours];
-    
-
 }
 
 
@@ -71,7 +67,6 @@
 
     
     self.timeLine=[self.source objectAtIndex:indexPath.row];
-    
     cell.eventDate.text=[self.timeLine getBrazilianDateFomatWithDate:self.timeLine.dateTime];
     float normalHours=0;
     float overHours=0;
@@ -98,6 +93,10 @@
     self.grandTotalNormalHours=self.grandTotalNormalHours+normalHours;
     self.grandTotalOverHours=self.grandTotalOverHours+overHours;
     
+    self.totalHours.text=[NSString stringWithFormat:@"Normal: %02.2f",self.grandTotalNormalHours];
+    self.totalOverHours.text=[NSString stringWithFormat:@"Over: %02.2f",self.grandTotalOverHours];
+
+    
     return cell;
     
 }
@@ -121,6 +120,11 @@
 - (void)tableView:(UITableView *)a_tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Remove from database
+        TimeLine *timeLineObject=[self.source objectAtIndex:indexPath.row];
+        [self.database removeMonthEventsWithReference:timeLineObject.dateTime];
+
+        // Remove from Table View's datasourcce
         [self.source removeObjectAtIndex:indexPath.row];
         [a_tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }

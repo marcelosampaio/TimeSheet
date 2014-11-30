@@ -230,5 +230,36 @@
     
 }
 
+-(void)removeMonthEventsWithReference:(NSString *)reference {
+
+    NSMutableString *beginDate=[NSMutableString stringWithString:reference];
+    [beginDate appendString:@" 00:00:00"];
+    
+    NSMutableString *endDate=[NSMutableString stringWithString:reference];
+    [endDate appendString:@" 23:59:59"];
+
+    // Delete month's events
+    // Open DataBase
+    [self openDB];
+
+    // error variable for database call
+    char *err;
+    
+    // sql string
+    NSString *sql=[NSString stringWithFormat:@"delete from TimeSheet where eventDate between '%@' and '%@'",beginDate,endDate];
+    
+    // execute database command
+    if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        sqlite3_close(db);
+        NSAssert(0, @"Database error - (removeMonthEventsWithReference:) Method");
+    }
+    
+    // Close DataBase
+    [self closeDB];
+
+    
+    
+    
+}
 
 @end

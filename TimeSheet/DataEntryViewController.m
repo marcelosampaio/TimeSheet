@@ -80,6 +80,10 @@
     Database *database=[[Database alloc]init];
     [database addTimeSheetWithTimeLineObject:timeLine];
     
+    
+    // Return to Root View Controller
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 #pragma mark - PickerView Data Source

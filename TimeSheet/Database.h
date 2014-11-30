@@ -24,6 +24,6 @@
 -(void) copyDatabaseToWritableFolder;
 -(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine;
 -(NSMutableArray *)getTimeLineWithYear:(int)year month:(int)month day:(int)day;
-
+-(void)removeMonthEventsWithReference:(NSString *)reference;
 
 @end
