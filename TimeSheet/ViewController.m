@@ -42,6 +42,9 @@
     self.source=[[NSMutableArray alloc]init];
     self.timeLine=[[TimeLine alloc]init];
     
+    self.grandTotalOverHours=0;
+    self.grandTotalNormalHours=0;
+    
     self.source=[self.database getTimeLineWithYear:self.components.year month:self.components.month day:0];
     [self.tableView reloadData];
 }
@@ -93,6 +96,7 @@
     self.grandTotalNormalHours=self.grandTotalNormalHours+normalHours;
     self.grandTotalOverHours=self.grandTotalOverHours+overHours;
     
+    // Show grand totals
     self.totalHours.text=[NSString stringWithFormat:@"Normal: %02.2f",self.grandTotalNormalHours];
     self.totalOverHours.text=[NSString stringWithFormat:@"Over: %02.2f",self.grandTotalOverHours];
 
@@ -130,10 +134,11 @@
     }
 }
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"cell row");
-//    return;
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cell row %d",indexPath.row);
+    [self performSegueWithIdentifier:@"showDailyEvents" sender:self];
+    return;
+}
 
 
 
@@ -144,6 +149,9 @@
     // Get Date Components of the current date
     self.components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
     self.navigationItem.title=[NSString stringWithFormat:@"%d/%d",self.components.month,self.components.year];
+    
+    self.totalHours.text=@"";
+    self.totalOverHours.text=@"";
     
     self.totalHours.backgroundColor=[UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
     self.totalOverHours.backgroundColor=[UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
@@ -158,4 +166,11 @@
     [self.database copyDatabaseToWritableFolder];
 
 }
+
+#pragma mark - Navigation
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"prepareForSegue -> %@",segue.identifier);
+}
+
+
 @end

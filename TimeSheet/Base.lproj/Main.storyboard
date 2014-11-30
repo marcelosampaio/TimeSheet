@@ -115,6 +115,7 @@
                         <outlet property="tableView" destination="JVY-nQ-NPC" id="vn6-l4-2RM"/>
                         <outlet property="totalHours" destination="9Nh-UY-CIE" id="r6G-m0-LIG"/>
                         <outlet property="totalOverHours" destination="E32-Wr-XDQ" id="5Gp-aG-67L"/>
+                        <segue destination="Y6M-ov-ILc" kind="push" identifier="showDailyEvents" id="R5O-Ba-bMH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
