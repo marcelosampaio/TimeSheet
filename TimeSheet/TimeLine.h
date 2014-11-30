@@ -16,5 +16,6 @@
 
 -(id)initWithDateTime:(NSString *)p_DateTime rowId:(int)p_RowId totalHours:(float)p_Total_Hours;
 
+-(NSString *)getBrazilianDateFomatWithDate:(NSString *)date;
 
 @end

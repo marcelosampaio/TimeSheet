@@ -16,12 +16,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalHours;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+
+
+
 @property (nonatomic,strong) NSMutableArray *source;
 
 @property (nonatomic,strong) Database *database;
 @property (nonatomic,strong) TimeLine *timeLine;
 
 @property (nonatomic,strong) NSDateComponents *components;
+
+
+
+
 
 @end
 

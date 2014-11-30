@@ -17,6 +17,7 @@
 @synthesize source;
 @synthesize database,timeLine,components;
 
+
 #pragma mark - View Lify Cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,7 +61,7 @@
     
     self.timeLine=[self.source objectAtIndex:indexPath.row];
     
-    cell.textLabel.text=timeLine.dateTime;
+    cell.textLabel.text=[self.timeLine getBrazilianDateFomatWithDate:self.timeLine.dateTime];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"%f",timeLine.totalHours];
     
     return cell;

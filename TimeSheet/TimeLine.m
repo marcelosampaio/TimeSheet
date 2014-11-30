@@ -22,4 +22,22 @@
     return self;
 }
 
+-(NSString *)getBrazilianDateFomatWithDate:(NSString *)date {
+    // returns only the date
+    
+    NSArray *components = [date componentsSeparatedByString:@" "];
+    // 0- Date
+    // 1- Time
+    NSString *dateString=[components objectAtIndex:0];
+    NSArray *dateComponents=[dateString componentsSeparatedByString:@"-"];
+    
+    NSMutableString *brazilianDateFormat=[NSMutableString stringWithFormat:@"%@",[dateComponents objectAtIndex:2]];
+    [brazilianDateFormat appendFormat:@"/"];
+    [brazilianDateFormat appendFormat:@"%@",[dateComponents objectAtIndex:1]];
+    [brazilianDateFormat appendFormat:@"/"];
+    [brazilianDateFormat appendFormat:@"%@",[dateComponents objectAtIndex:0]];
+    
+    return brazilianDateFormat;
+}
+
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C038BF21A2AA8DB005DF5B5 /* CustomEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C038BF01A2AA8DB005DF5B5 /* CustomEventTableViewCell.m */; };
+		9C038BF31A2AA8DB005DF5B5 /* CustomEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C038BF11A2AA8DB005DF5B5 /* CustomEventTableViewCell.xib */; };
 		9C4DD8A71A2151AB00E403B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DD8A61A2151AB00E403B5 /* main.m */; };
 		9C4DD8AA1A2151AB00E403B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DD8A91A2151AB00E403B5 /* AppDelegate.m */; };
 		9C4DD8AD1A2151AB00E403B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DD8AC1A2151AB00E403B5 /* ViewController.m */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C038BEF1A2AA8DB005DF5B5 /* CustomEventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomEventTableViewCell.h; sourceTree = "<group>"; };
+		9C038BF01A2AA8DB005DF5B5 /* CustomEventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomEventTableViewCell.m; sourceTree = "<group>"; };
+		9C038BF11A2AA8DB005DF5B5 /* CustomEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomEventTableViewCell.xib; sourceTree = "<group>"; };
 		9C4DD8A11A2151AB00E403B5 /* TimeSheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C4DD8A51A2151AB00E403B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C4DD8A61A2151AB00E403B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				9C4DD8AE1A2151AB00E403B5 /* Main.storyboard */,
+				9C038BF11A2AA8DB005DF5B5 /* CustomEventTableViewCell.xib */,
 				9C4DD8B31A2151AB00E403B5 /* LaunchScreen.xib */,
 			);
 			name = "User Interface";
@@ -187,6 +193,8 @@
 				9CD5BF5E1A22C4B300A16490 /* TimeLine.m */,
 				9CD5BF651A235E6100A16490 /* Database.h */,
 				9CD5BF661A235E6100A16490 /* Database.m */,
+				9C038BEF1A2AA8DB005DF5B5 /* CustomEventTableViewCell.h */,
+				9C038BF01A2AA8DB005DF5B5 /* CustomEventTableViewCell.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -280,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C038BF31A2AA8DB005DF5B5 /* CustomEventTableViewCell.xib in Resources */,
 				9C52F3DF1A258414005E7902 /* TimeSheet.db in Resources */,
 				9C4DD8B01A2151AB00E403B5 /* Main.storyboard in Resources */,
 				9C4DD8B51A2151AB00E403B5 /* LaunchScreen.xib in Resources */,
@@ -304,6 +313,7 @@
 				9C4DD8AD1A2151AB00E403B5 /* ViewController.m in Sources */,
 				9C4DD8AA1A2151AB00E403B5 /* AppDelegate.m in Sources */,
 				9CD5BF671A235E6100A16490 /* Database.m in Sources */,
+				9C038BF21A2AA8DB005DF5B5 /* CustomEventTableViewCell.m in Sources */,
 				9CD5BF5F1A22C4B300A16490 /* TimeLine.m in Sources */,
 				9C4DD8A71A2151AB00E403B5 /* main.m in Sources */,
 				9CD5BF5B1A22C33800A16490 /* DataEntryViewController.m in Sources */,
