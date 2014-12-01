@@ -7,12 +7,14 @@
 //
 
 #import "TimeDetailTableViewController.h"
+#import "TimeLine.h"
 
 @interface TimeDetailTableViewController ()
 
 @end
 
 @implementation TimeDetailTableViewController
+@synthesize eventDateTime;
 
 @synthesize source;
 
@@ -24,10 +26,18 @@
     self.source=[[NSMutableArray alloc]init];
     self.source=[self loadSource];
     
+    NSLog(@"Detail -> %@",eventDateTime);
     
+    TimeLine *timeLine=[[TimeLine alloc]init];
+    
+    
+    
+    NSString *brazilianEventDateFormat=[timeLine getBrazilianDateFomatWithDate:eventDateTime];
+    
+    self.navigationItem.title=brazilianEventDateFormat;
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;

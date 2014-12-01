@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+
+    // Navigation Bar
+    [[UINavigationBar appearance]setBarTintColor:[UIColor darkGrayColor]];
+
+    [[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+    
+    [[UINavigationBar appearance]setTintColor:[UIColor orangeColor]];
+    
+    
+    
     return YES;
 }
 
@@ -41,5 +52,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

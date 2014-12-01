@@ -12,5 +12,7 @@
 
 @property (nonatomic,strong) NSMutableArray *source;
 
+@property (nonatomic,strong) NSString *eventDateTime;
+
 
 @end

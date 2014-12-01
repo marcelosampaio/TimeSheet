@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CustomEventTableViewCell.h"
+#import "TimeDetailTableViewController.h"
 
 @interface ViewController ()
 
@@ -25,7 +26,7 @@
 
     // Database Initial Procedures
     [self databaseInitialProcedures];
-    
+
     // Configure UI
     [self configureUI];
     
@@ -33,10 +34,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-//    // reset intial some variables
-//    self.grandTotalOverHours=0;
-//    self.grandTotalNormalHours=0;
     
     // Load data from database
     self.source=[[NSMutableArray alloc]init];
@@ -135,9 +132,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell row %d",indexPath.row);
     [self performSegueWithIdentifier:@"showDailyEvents" sender:self];
-    return;
 }
 
 
@@ -148,13 +143,18 @@
 -(void)configureUI {
     // Get Date Components of the current date
     self.components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    self.navigationItem.title=[NSString stringWithFormat:@"%d/%d",self.components.month,self.components.year];
+    self.navigationItem.title=[NSString stringWithFormat:@"%ld/%ld",(long)self.components.month,(long)self.components.year];
     
     self.totalHours.text=@"";
     self.totalOverHours.text=@"";
     
-    self.totalHours.backgroundColor=[UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
-    self.totalOverHours.backgroundColor=[UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1];
+    // Sub-Header Background Color
+    UIColor *backgroundSubHeaderColor=[UIColor colorWithRed:0.92 green:0.92 blue:0.92 alpha:1];
+    self.totalHours.backgroundColor=backgroundSubHeaderColor;
+    self.totalOverHours.backgroundColor=backgroundSubHeaderColor;
+    
+    
+
 }
 
 #pragma mark - DataBase Methods
@@ -169,8 +169,22 @@
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"prepareForSegue -> %@",segue.identifier);
+    if ([segue.identifier isEqualToString:@"showDailyEvents"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        TimeLine *objTimeLine=[[TimeLine alloc]init];
+        objTimeLine=[self.source objectAtIndex:indexPath.row];
+        
+        TimeDetailTableViewController *timeDetailTableViewController=segue.destinationViewController;
+        timeDetailTableViewController.eventDateTime=objTimeLine.dateTime;
+    }
 }
+
+#pragma mark - Satus Bar
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 
 
 @end

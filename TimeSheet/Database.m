@@ -85,6 +85,7 @@
 #pragma mark - Time Sheet Methods
 -(void) addTimeSheetWithTimeLineObject:(TimeLine *)timeLine {
 
+    
     // Open DataBase
     [self openDB];
     
@@ -95,6 +96,8 @@
     
     // sql string
     NSString *sql=[NSString stringWithFormat:@"insert into TimeSheet (eventDate) values ('%@')",timeLineObject.dateTime];
+    
+    NSLog(@"*** SQL = %@",sql);
     
     // execute database command
     if (sqlite3_exec(db, [sql UTF8String], NULL, NULL, &err) != SQLITE_OK) {

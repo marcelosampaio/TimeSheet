@@ -12,15 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TimeSheetIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BaW-JH-pae">
-                    <rect key="frame" x="57" y="218" width="300" height="300"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="300" id="2GB-IV-J3x"/>
-                        <constraint firstAttribute="height" constant="300" id="FJv-IM-f50"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="bIs-Dv-01T"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(c) Marcelo Sampaio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-JI-CyC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(c) Marcelo Sampaio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhC-JI-CyC">
                     <rect key="frame" x="57" y="707" width="300" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="X3b-Rl-qQD"/>
@@ -29,32 +21,26 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TimeSheet" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeSheet" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
                     <rect key="frame" x="20" y="167" width="375" height="43"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.070588235294117646" green="0.35686274509803922" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="57" id="1RH-Op-h8W"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2nu-dR-xQh"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="leading" secondItem="FhC-JI-CyC" secondAttribute="leading" id="Jbu-Oj-rHl"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JzI-p6-KlW"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Q7V-Wf-YBT"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="trailing" secondItem="FhC-JI-CyC" secondAttribute="trailing" id="hiB-Ke-hEq"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="1Jx-4a-kRE"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="FhC-JI-CyC" secondAttribute="centerX" id="7by-u8-gVh"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H6X-F2-wYC"/>
                 <constraint firstItem="FhC-JI-CyC" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="i3q-4x-pXg"/>
-                <constraint firstItem="BaW-JH-pae" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="8" symbolic="YES" id="qcd-PC-8N8"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="167" id="uPb-AJ-1En"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
-    <resources>
-        <image name="TimeSheetIcon" width="252" height="252"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
